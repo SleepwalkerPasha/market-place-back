@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: script/01-create-chat-table.sql
+      relativeToChangelogFile: true
