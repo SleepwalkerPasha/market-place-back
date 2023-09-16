@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 class BagginsApplicationTests {
 
     @Test
+    @Suppress("EmptyFunctionBlock")
     fun contextLoads() {
     }
 

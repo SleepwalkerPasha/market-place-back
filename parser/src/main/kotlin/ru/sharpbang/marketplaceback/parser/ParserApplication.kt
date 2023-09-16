@@ -6,6 +6,7 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class ParserApplication
 
+@Suppress("SpreadOperator")
 fun main(args: Array<String>) {
     runApplication<ParserApplication>(*args)
 }
