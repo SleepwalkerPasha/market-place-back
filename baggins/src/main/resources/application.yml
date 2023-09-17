@@ -3,7 +3,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: marketplace
     password: marketplace
-    url: jdbc:postgresql://localhost:5432/marketplace
+    url: jdbc:postgresql://marketplace-db:5432/marketplace
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
