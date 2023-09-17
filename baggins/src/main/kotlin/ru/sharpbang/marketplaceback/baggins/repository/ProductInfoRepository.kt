@@ -8,5 +8,5 @@ import ru.sharpbang.marketplaceback.baggins.repository.entities.ProductInfoEntit
 interface ProductInfoRepository: JpaRepository<ProductInfoEntity, Long> {
 
     @Query("select pi from ProductInfoEntity pi where pi.productId = ?1")
-    fun findAllByProductId(productId: Long): List<ProductInfoResponse>
+    fun findAllByProductId(productId: Long): List<ProductInfoEntity>
 }

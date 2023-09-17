@@ -18,16 +18,16 @@ class ProductUseCase(
 ) : ProductPort {
     override fun getProductById(id: Long): ProductResponse =
         productRepository.findById(id).orElseThrow { throw NotFoundException("product with id $id not found") }.run {
-            this.toModel(imageRepository.findAllByProductEntity_Id(this.id!!).map { it.toResponse() })
+            this.toModel(imageRepository.findAllByProductEntityId(this.id!!).map { it.toResponse() })
         }
 
     override fun addNewProduct(newProductRequest: NewProductRequest) =
         productRepository.save(newProductRequest.toEntity())
-            .run { this.toModel(imageRepository.findAllByProductEntity_Id(this.id!!).map { it.toResponse() }) }
+            .run { this.toModel(imageRepository.findAllByProductEntityId(this.id!!).map { it.toResponse() }) }
 
     override fun updateProductInfo(updateProductRequest: UpdateProductRequest) =
         productRepository.save(updateProductRequest.toEntity(getProductById(id = updateProductRequest.id)))
-            .run { this.toModel(imageRepository.findAllByProductEntity_Id(this.id!!).map { it.toResponse() }) }
+            .run { this.toModel(imageRepository.findAllByProductEntityId(this.id!!).map { it.toResponse() }) }
 
     override fun deleteProduct(productId: Long) = productRepository.deleteById(productId)
 }

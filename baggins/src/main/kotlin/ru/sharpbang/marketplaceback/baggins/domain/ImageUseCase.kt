@@ -36,7 +36,7 @@ class ImageUseCase(
     override fun deleteImage(imageId: Long) = imageRepository.deleteById(imageId)
 
     override fun getImagesByProductId(productId: Long): List<ImageResponse> =
-        imageRepository.findAllByProductEntity_Id(productId).map { it.toResponse() }
+        imageRepository.findAllByProductEntityId(productId).map { it.toResponse() }
 
 }
 

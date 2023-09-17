@@ -4,7 +4,7 @@ import org.mapstruct.Mapper
 import ru.sharpbang.marketplaceback.baggins.model.response.ProductInfoResponse
 import ru.sharpbang.marketplaceback.baggins.repository.entities.ProductInfoEntity
 
-@Mapper
+@Mapper(componentModel = "spring")
 interface ProductInfoMapper {
 
     fun toEntity(productInfoResponse: ProductInfoResponse): ProductInfoEntity
