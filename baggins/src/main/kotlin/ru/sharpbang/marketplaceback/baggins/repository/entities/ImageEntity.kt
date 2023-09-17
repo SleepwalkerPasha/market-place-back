@@ -12,14 +12,14 @@ import java.sql.Types
 
 @Entity
 @Table(name = "images")
-class ImageDto(
+class ImageEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     var id: Long? = null,
 
     @Column(nullable = false)
-    var name: String? = null,
+    var title: String? = null,
 
     @Column(nullable = false)
     @JdbcTypeCode(Types.LONGVARBINARY)

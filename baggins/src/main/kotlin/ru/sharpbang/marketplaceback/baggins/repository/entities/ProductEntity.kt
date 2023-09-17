@@ -15,14 +15,14 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "products")
-class ProductDto(
+class ProductEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     var id: Long? = null,
 
     @Column(nullable = false)
-    var name: String?=null,
+    var title: String?=null,
 
     @Lob
     @Column(nullable = false)
@@ -37,5 +37,5 @@ class ProductDto(
         joinColumns = [JoinColumn(name = "product_id")],
         inverseJoinColumns = [JoinColumn(name = "image_id")]
     )
-    var pictures: Set<ImageDto> = HashSet()
+    var pictures: Set<ImageEntity> = HashSet()
 )
