@@ -1,6 +1,5 @@
 package ru.sharpbang.marketplaceback.baggins.adapter.primary.rest.controller
 
-import jakarta.validation.Valid
 import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -15,10 +14,10 @@ import ru.sharpbang.marketplaceback.baggins.model.response.CustomerInfoResponse
 import ru.sharpbang.marketplaceback.baggins.model.response.SellerInfoResponse
 import ru.sharpbang.marketplaceback.baggins.model.response.UserInfoResponse
 import ru.sharpbang.marketplaceback.baggins.port.UserPort
-import ru.sharpbang.marketplaceback.baggins.support.utils.executeWithLogging
 import ru.sharpbang.marketplaceback.baggins.support.utils.RestContstants.GET_METHOD
 import ru.sharpbang.marketplaceback.baggins.support.utils.RestContstants.POST_METHOD
 import ru.sharpbang.marketplaceback.baggins.support.utils.RestContstants.PUT_METHOD
+import ru.sharpbang.marketplaceback.baggins.support.utils.executeWithLogging
 
 @RestController
 @RequestMapping("/users")
