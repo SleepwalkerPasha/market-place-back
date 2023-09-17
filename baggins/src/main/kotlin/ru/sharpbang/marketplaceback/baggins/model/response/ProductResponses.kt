@@ -7,5 +7,11 @@ data class ProductResponse(
     val title: String,
     val description: String,
     val price: BigDecimal,
-    val pictures: Set<ImageResponse>
+    val pictures: List<ImageResponse>
+)
+
+data class ProductInfoResponse(
+    val productId: Long,
+    val infoFieldName: String,
+    val infoFieldValue: String,
 )

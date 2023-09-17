@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - include:
+      file: script/01-create-users-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: script/02-create-customers-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: script/03-create-sellers-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: script/04-create-products-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: script/05-create-customers-products-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: script/06-create-image-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: script/07-create-product-info-table.sql
+      relativeToChangelogFile: true

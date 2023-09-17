@@ -35,16 +35,15 @@ services:
     ports:
       - "8083:8083"
     depends_on:
-      - marketplace-db
-    environment: # todo change env
-      - MARKETPLACE_DB_NAME=marketplace
-      - MARKETPLACE_DB_USER=marketplace
-      - MARKETPLACE_DB_PASSWORD=marketplace
-      - MARKETPLACE_DB_DB_HOST=db
-      - MARKETPLACE_DB_DB_PORT=5432
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/marketplace
+      - SPRING_DATASOURCE_USERNAME=marketplace
+      - SPRING_DATASOURCE_PASSWORD=marketplace
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
 
-  marketplace-db:
-    container_name: postgres_container
+  db:
+    container_name: db
     image: postgres:15
     environment: # todo change env
       POSTGRES_USER: marketplace
@@ -61,12 +60,12 @@ services:
   liquibase-migrations:
     image: liquibase/liquibase:4.18
     depends_on:
-      - marketplace-db
+      - db
     command:
       - --hub-mode=off
       - --changelog-file=master.yaml
       - --driver=org.postgresql.Driver # todo change env
-      - --url=jdbc:postgresql://postgresql:5432/marketplace
+      - --url=jdbc:postgresql://db:5432/marketplace
       - --username=marketplace
       - --password=marketplace
       - update

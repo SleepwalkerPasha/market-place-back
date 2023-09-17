@@ -5,16 +5,17 @@ import mu.KLogger
 internal inline fun <I, reified R> executeWithLogging(
     logger: KLogger,
     requestBody: I,
-    crossinline block: (I) -> R,
-    logPoint: String
+    logPoint: String,
+    httpMethod: String,
+    crossinline block: (I) -> R
 ): R {
-    logger.info { "$logPoint.request : $requestBody" }
+    logger.info { "$httpMethod $logPoint.request : $requestBody" }
     runCatching {
         return block(requestBody).also {
-            logger.info { "$logPoint.response : $it" }
+            logger.info { "$httpMethod $logPoint.response : $it" }
         }
     }.getOrElse {
-        logger.error { it.toErrorResponse() }
+        logger.error { "$httpMethod $logPoint.error : ${it.toErrorResponse()}"  }
         throw it
     }
 }
