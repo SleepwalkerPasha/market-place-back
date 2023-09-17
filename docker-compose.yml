@@ -9,6 +9,8 @@ services:
       - "8084:8084"
     depends_on:
       - restservice
+    networks:
+      - backend
 
   restservice:
     build: ./restservice
@@ -18,6 +20,8 @@ services:
       - "8085:8085"
     depends_on:
       - baggins
+    networks:
+      - backend
 
   bot:
     build: ./bot
@@ -27,6 +31,8 @@ services:
       - "8082:8082"
     depends_on:
       - parser
+    networks:
+      - backend
 
   baggins:
     build: ./baggins
@@ -41,6 +47,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=marketplace
       - SPRING_DATASOURCE_PASSWORD=marketplace
       - SPRING_JPA_HIBERNATE_DDL_AUTO=none
+    networks:
+      - backend
 
   db:
     container_name: db
