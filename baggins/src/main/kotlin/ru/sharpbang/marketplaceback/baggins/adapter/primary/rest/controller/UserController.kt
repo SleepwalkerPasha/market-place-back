@@ -44,7 +44,7 @@ class UserController(
             logPoint = SERVICE_LOG_POINT
         ) { userPort.registerNewUser(newUserRequest) }
 
-    @PutMapping
+    @PutMapping("/update")
     fun updateUserInfo(@RequestBody updateUserRequest: UpdateUserRequest) =
         executeWithLogging(
             logger = logger,

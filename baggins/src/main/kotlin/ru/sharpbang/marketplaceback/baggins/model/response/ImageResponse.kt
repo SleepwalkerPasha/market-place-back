@@ -3,7 +3,8 @@ package ru.sharpbang.marketplaceback.baggins.model.response
 data class ImageResponse(
     val id: Long,
     val title: String,
-    val content: ByteArray
+    val content: ByteArray,
+    val productId: Long
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
